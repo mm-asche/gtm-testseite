@@ -1,0 +1,30 @@
+{
+  "url": "https://quiet-platypus-3bf12d.netlify.app/",
+  "einwilligung_selektor": null,
+  "formulare_abfangen": true,
+  "mobil_anteil": 0.55,
+  "wiederkehr_anteil": 0.25,
+  "quellen": [
+    {"gewicht": 30, "utm_source": "google", "utm_medium": "cpc", "utm_campaign": "tischlerei_suche"},
+    {"gewicht": 15, "utm_source": "facebook", "utm_medium": "paid_social", "utm_campaign": "kuechen_herbst"},
+    {"gewicht": 10, "utm_source": "instagram", "utm_medium": "paid_social", "utm_campaign": "kuechen_herbst"},
+    {"gewicht": 8, "utm_source": "newsletter", "utm_medium": "email", "utm_campaign": "september"},
+    {"gewicht": 5, "utm_source": "google_business", "utm_medium": "organic", "utm_campaign": "gbp_website"},
+    {"gewicht": 32, "utm_source": null}
+  ],
+  "aktionen": [
+    {"name": "nur_umsehen", "gewicht": 30, "art": "umsehen"},
+    {"name": "telefon_kopf", "gewicht": 8, "art": "klick", "selektor": "#kopf-telefon"},
+    {"name": "telefon_block", "gewicht": 7, "art": "klick", "selektor": "#link-telefon"},
+    {"name": "email", "gewicht": 10, "art": "klick", "selektor": "#link-mail"},
+    {"name": "whatsapp", "gewicht": 8, "art": "klick", "selektor": "#link-whatsapp"},
+    {"name": "download_preisliste", "gewicht": 10, "art": "klick", "selektor": "#link-pdf"},
+    {"name": "formular_angebot", "gewicht": 15, "art": "formular_standard", "selektor": "#form-standard"},
+    {"name": "formular_rueckruf", "gewicht": 10, "art": "formular_ajax", "selektor": "#form-ajax", "absenden": "#ajax-button", "erfolg_selektor": "#ajax-erfolg"},
+    {"name": "danke_direkt", "gewicht": 2, "art": "seite", "selektor": "a[href=\"/danke\"]"}
+  ],
+  "zeitfenster": [
+    {"name": "vormittag", "von": 9, "bis": 12, "anzahl": [15, 20], "wochentage": ["mo", "di", "mi", "do", "fr"]},
+    {"name": "mittag", "von": 13, "bis": 15, "anzahl": [15, 20], "wochentage": ["mo", "di", "mi", "do", "fr"]}
+  ]
+}

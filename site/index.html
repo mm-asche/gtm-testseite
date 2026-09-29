@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- Google Tag Manager (Teil 1) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M8T2K4PZ');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tischlerei Beispiel – GTM-Testseite</title>
+<style>
+  :root{--rot:#AE3233;--dunkel:#1B1B1A;--text:#3d3d3d;--flaeche:#f4f2f1;--rand:#ddd;--gruen:#2e7d32}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:#fff;line-height:1.55}
+  header{background:var(--dunkel);color:#fff;padding:18px 16px}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  header strong{font-size:1.15rem}
+  header a{color:#fff}
+  .kopf-kontakt{display:flex;gap:18px;flex-wrap:wrap}
+  .wrap{max-width:960px;margin:0 auto}
+  main{padding:0 16px 48px}
+  .hero{padding:48px 0 24px}
+  h1{color:var(--dunkel);font-size:clamp(1.6rem,4vw,2.3rem);margin:0 0 10px}
+  h2{color:var(--dunkel);margin:0 0 6px}
+  .tag{display:inline-block;background:var(--rot);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-bottom:10px}
+  section.box{background:var(--flaeche);border-radius:8px;padding:24px;margin:24px 0}
+  .hinweis{font-size:.9rem;background:#fff;border-left:4px solid var(--rot);padding:10px 14px;margin:14px 0 18px}
+  .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .links a{display:block;background:#fff;border:1px solid var(--rand);border-radius:6px;padding:14px;color:var(--dunkel);text-decoration:none}
+  .links a:hover{border-color:var(--rot)}
+  .links small{display:block;color:#777}
+  .btn{display:inline-block;background:var(--rot);color:#fff !important;border:0;border-radius:5px;padding:12px 22px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn:hover{background:#8E2728}
+  form,.formular{display:grid;gap:12px;max-width:520px}
+  label{font-weight:600;font-size:.95rem;display:grid;gap:4px}
+  input,textarea,select{font:inherit;padding:10px;border:1px solid #bbb;border-radius:5px;width:100%}
+  .check{display:flex;gap:8px;align-items:flex-start;font-weight:400}
+  .check input{width:auto;margin-top:4px}
+  .hidden,[hidden]{display:none !important}
+  .meldung{padding:14px;border-radius:6px;font-weight:600}
+  .ok{background:#e8f5e9;color:var(--gruen)}
+  .fehler{background:#fdecea;color:#b71c1c}
+  details{font-size:.85rem;margin-top:14px;color:#555}
+  code{background:#fff;padding:1px 5px;border-radius:3px;font-size:.85em}
+  footer{border-top:1px solid var(--rand);padding:20px 16px;font-size:.85rem;color:#777}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) (Teil 2) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8T2K4PZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header>
+  <div class="wrap">
+    <strong>Tischlerei Beispiel</strong>
+    <span class="kopf-kontakt">
+      <a href="tel:+4930123456789" id="kopf-telefon">030 123 456 789</a>
+      <a href="mailto:test@example.com?subject=Testanfrage" id="kopf-mail">test@example.com</a>
+    </span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <span class="tag">Testseite</span>
+    <h1>Maßmöbel aus der eigenen Werkstatt</h1>
+    <p>Diese Seite ist ein Übungsobjekt für Google Tag Manager. Alle Kontaktdaten sind erfunden, bitte nur Testdaten eintragen.</p>
+    <a class="btn" href="#formular-standard"><span>Jetzt Angebot anfragen</span></a>
+  </div>
+
+  <!-- TEST 1: LINK-KLICKS -->
+  <section class="box" id="links">
+    <span class="tag">Test 1 · Link-Klicks</span>
+    <h2>Kontakt und Downloads</h2>
+    <div class="hinweis">GTM-Trigger: <strong>Klick – Nur Links</strong>, Bedingung auf <code>Click URL</code></div>
+    <div class="links">
+      <a href="tel:+4930123456789" id="link-telefon">📞 Anrufen<small>tel:-Link</small></a>
+      <a href="mailto:test@example.com?subject=Testanfrage" id="link-mail">✉️ E-Mail schreiben<small>mailto:-Link</small></a>
+      <a href="https://wa.me/4930123456789" target="_blank" rel="noopener" id="link-whatsapp">💬 WhatsApp<small>externer Link (wa.me)</small></a>
+      <a href="/preisliste.pdf" download id="link-pdf">📄 Preisliste (PDF)<small>Datei-Download</small></a>
+    </div>
+  </section>
+
+  <!-- TEST 2: STANDARD-FORMULAR -->
+  <section class="box" id="formular-standard">
+    <span class="tag">Test 2 · Standard-Formular</span>
+    <h2>Angebot anfragen</h2>
+    <div class="hinweis">Klassisches Formular: Absenden lädt die Seite <code>/danke.html</code>.<br>GTM-Trigger: <strong>Formularsendung</strong> (oder Seitenaufruf auf <code>/danke</code>)</div>
+
+    <form name="angebot-standard" id="form-standard" method="POST" action="/danke.html" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="angebot-standard">
+      <p class="hidden"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
+      <label>Name <input type="text" name="name" required autocomplete="off"></label>
+      <label>E-Mail <input type="email" name="email" required autocomplete="off"></label>
+      <label>Projekt
+        <select name="projekt">
+          <option>Küche</option><option>Einbauschrank</option><option>Treppe</option><option>Sonstiges</option>
+        </select>
+      </label>
+      <label>Nachricht <textarea name="nachricht" rows="3"></textarea></label>
+      <label class="check"><input type="checkbox" name="datenschutz" required> Ich habe die (fiktive) Datenschutzerklärung gelesen.</label>
+      <button class="btn" type="submit">Anfrage senden</button>
+    </form>
+  </section>
+
+  <!-- TEST 3: AJAX-FORMULAR -->
+  <section class="box" id="formular-ajax">
+    <span class="tag">Test 3 · AJAX-Formular</span>
+    <h2>Rückruf anfordern</h2>
+    <div class="hinweis">Sendet im Hintergrund, die Seite lädt nicht neu. Der Standard-Trigger reicht hier nicht.<br>GTM: <strong>Listener-Tag (Benutzerdefiniertes HTML)</strong> + Trigger <strong>Benutzerdefiniertes Ereignis</strong> <code>ajax_form_erfolg</code></div>
+
+    <!-- Nur für die Netlify-Formularerkennung beim Upload. Wird nie angezeigt und nie abgeschickt. -->
+    <form name="rueckruf-ajax" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name"><input type="tel" name="telefon"><input type="text" name="uhrzeit"><input name="bot-field">
+    </form>
+
+    <!-- Das sichtbare Formular ist bewusst KEIN <form>: Es gibt kein submit-Ereignis, das GTM abfangen könnte. -->
+    <div class="formular" id="form-ajax" role="form" aria-label="Rückruf anfordern">
+      <label>Name <input type="text" name="name" required autocomplete="off"></label>
+      <label>Telefon <input type="tel" name="telefon" required autocomplete="off"></label>
+      <label>Beste Uhrzeit
+        <select name="uhrzeit">
+          <option>Vormittags</option><option>Mittags</option><option>Nachmittags</option>
+        </select>
+      </label>
+      <button class="btn" type="button" id="ajax-button">Rückruf anfordern</button>
+    </div>
+    <div id="ajax-erfolg" class="meldung ok hidden" role="status">Danke! Wir rufen dich zurück. (Die Seite wurde nicht neu geladen.)</div>
+    <div id="ajax-fehler" class="meldung fehler hidden" role="alert">Senden fehlgeschlagen. Bitte später erneut versuchen.</div>
+
+    <details>
+      <summary>Für die Moderation: was hier technisch passiert</summary>
+      <p>Die Felder stehen nicht in einem <code>&lt;form&gt;</code>-Element, der Button ist <code>type="button"</code>. Das Skript prüft die Pflichtfelder selbst und schickt die Daten per <code>fetch</code>. Bei Erfolg wird das Formular ausgeblendet, eine Meldung erscheint und auf <code>document</code> wird das DOM-Ereignis <code>demoform:gesendet</code> ausgelöst. So arbeiten viele Formular-Plugins, z. B. Contact Form 7 mit <code>wpcf7mailsent</code>.</p>
+      <p>Folge in GTM: Der Trigger „Formularsendung“ feuert nie, egal mit welchen Optionen. Ein Klick-Trigger „Alle Elemente“ auf den Button feuert zwar, aber auch bei leeren Pflichtfeldern oder gescheitertem Versand. Erst das Listener-Tag meldet den tatsächlichen Erfolg an den dataLayer.</p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Tischlerei Beispiel · fiktive Übungsseite für Tracking-Schulungen · <a href="/danke.html">Danke-Seite direkt</a></div>
+</footer>
+
+<script>
+  // AJAX-Formular (Test 3): Versand im Hintergrund, kein Seitenwechsel
+  (function () {
+    var form = document.getElementById('form-ajax');
+    var ok = document.getElementById('ajax-erfolg');
+    var err = document.getElementById('ajax-fehler');
+    var button = document.getElementById('ajax-button');
+
+    function feld(name) { return form.querySelector('[name="' + name + '"]'); }
+
+    button.addEventListener('click', function () {
+      // Pflichtfelder selbst prüfen (ohne <form> gibt es keine automatische Prüfung)
+      var pflicht = form.querySelectorAll('[required]');
+      for (var i = 0; i < pflicht.length; i++) {
+        if (!pflicht[i].reportValidity()) return;
+      }
+      err.classList.add('hidden');
+      button.disabled = true;
+      button.textContent = 'Wird gesendet …';
+
+      var daten = new URLSearchParams({
+        'form-name': 'rueckruf-ajax',
+        name: feld('name').value,
+        telefon: feld('telefon').value,
+        uhrzeit: feld('uhrzeit').value
+      });
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: daten.toString()
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          form.classList.add('hidden');
+          ok.classList.remove('hidden');
+          // Signal für ein Listener-Tag – bewusst KEIN dataLayer.push, das muss GTM selbst erledigen
+          document.dispatchEvent(new CustomEvent('demoform:gesendet', {
+            detail: { formName: 'rueckruf-ajax', uhrzeit: feld('uhrzeit').value }
+          }));
+        })
+        .catch(function () {
+          err.classList.remove('hidden');
+          button.disabled = false;
+          button.textContent = 'Rückruf anfordern';
+        });
+    });
+  })();
+</script>
+</body>
+</html>
