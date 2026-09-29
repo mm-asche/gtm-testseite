@@ -1,0 +1,69 @@
+# Testet die GTM-Testseite aus dem Ordner site/ mit simulierten Besuchen.
+# Läuft Mo–Fr alle 15 Minuten zwischen 7 und 13:59 Uhr UTC. Das deckt 9–12 und 13–15 Uhr
+# Berliner Zeit in Sommer- und Winterzeit ab. Ob gerade ein Zeitfenster läuft, entscheidet
+# traffic_engine.py anhand von traffic/konfiguration.json (Europe/Berlin).
+name: Testseiten-Traffic
+
+on:
+  schedule:
+    - cron: "7,22,37,52 7-13 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      besuche:
+        description: "Anzahl Besuche bei Handstart"
+        default: "3"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: testseiten-traffic
+  cancel-in-progress: false
+
+jobs:
+  besuche:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: traffic
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Anzahl Besuche bestimmen
+        id: plan
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "n=${{ inputs.besuche }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "n=$(python traffic_engine.py --takt 15 --nur-pruefen)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Browser aus dem Zwischenspeicher holen
+        if: steps.plan.outputs.n != '0'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-v1
+
+      - name: Stammbesucher aus dem Zwischenspeicher holen
+        if: steps.plan.outputs.n != '0'
+        uses: actions/cache@v4
+        with:
+          path: traffic/stammbesucher
+          key: stammbesucher-${{ github.run_id }}
+          restore-keys: stammbesucher-
+
+      - name: Playwright einrichten
+        if: steps.plan.outputs.n != '0'
+        run: |
+          pip install -q playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Besuche ausführen
+        if: steps.plan.outputs.n != '0'
+        run: python traffic_engine.py --besuche ${{ steps.plan.outputs.n }}
