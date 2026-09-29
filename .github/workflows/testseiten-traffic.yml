@@ -1,6 +1,6 @@
 # Testet die GTM-Testseite aus dem Ordner site/ mit simulierten Besuchen.
-# Läuft Mo–Fr alle 15 Minuten zwischen 7 und 13:59 Uhr UTC. Das deckt 9–12 und 13–15 Uhr
-# Berliner Zeit in Sommer- und Winterzeit ab. Ob gerade ein Zeitfenster läuft, entscheidet
+# L√§uft Mo‚ÄìFr alle 15 Minuten zwischen 7 und 13:59 Uhr UTC. Das deckt 9‚Äì12 und 13‚Äì15 Uhr
+# Berliner Zeit in Sommer- und Winterzeit ab. Ob gerade ein Zeitfenster l√§uft, entscheidet
 # traffic_engine.py anhand von traffic/konfiguration.json (Europe/Berlin).
 name: Testseiten-Traffic
 
@@ -22,15 +22,15 @@ concurrency:
 
 jobs:
   besuche:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # fest statt ubuntu-latest: Wechsel auf Ubuntu 26 ab 19.10.2026 abwarten, bis Playwright es unterst√ºtzt
     timeout-minutes: 20
     defaults:
       run:
         working-directory: traffic
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -45,14 +45,14 @@ jobs:
 
       - name: Browser aus dem Zwischenspeicher holen
         if: steps.plan.outputs.n != '0'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ runner.os }}-v1
 
       - name: Stammbesucher aus dem Zwischenspeicher holen
         if: steps.plan.outputs.n != '0'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: traffic/stammbesucher
           key: stammbesucher-${{ github.run_id }}
@@ -64,6 +64,6 @@ jobs:
           pip install -q playwright
           python -m playwright install --with-deps chromium
 
-      - name: Besuche ausführen
+      - name: Besuche ausf√ºhren
         if: steps.plan.outputs.n != '0'
         run: python traffic_engine.py --besuche ${{ steps.plan.outputs.n }}
